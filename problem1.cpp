@@ -1,31 +1,18 @@
 #include <iostream>
-#include <time.h>
-#include <cstdlib>
+// we need the following include for setw() in some c++ implementations
+#include <iomanip>
 using namespace std;
 
-int main () {
-  int random_number, guess;
-
-  // Initialize random seed.
-  srand (time(NULL));
-
-  // Generate random number between 1 and 100
-  random_number = rand() % 100 + 1;
-
-  cout << "Guess our number (1 to 100) ";
-  do {
-    if (!(cin >> guess)) {
-      cout << "Please enter only numbers" << endl;
-      cin.clear();
-      cin.ignore(1000, '\n');
-    } else {
-      if (random_number < guess)
-       cout << "The secret number is lower than " << guess << endl;
-      else if (random_number > guess)
-       cout << "The secret number is higher than " << guess << endl;
-    }
+int main() {
+  // the first for-loop will handle the rows
+  for (int i = 0; i < 6; i++) { // creates a for loop up to 6 times
+    // the second for loop will handle the columns
+    for (int j = 0;  j < 4 ; j++) // creates a for loop up to 4 times
+      // setw(int) sets the column width
+      cout << setw(17) << "Hello World!";
+    // this  next line is a part of the first for loop
+    // and causes the new line
+    cout << endl;
   }
-  while (random_number != guess);
-  cout << "Congratulations!" <<  endl;
   return 0;
 }

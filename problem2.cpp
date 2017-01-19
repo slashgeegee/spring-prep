@@ -16,6 +16,8 @@ int main () {
   do {
     if (!(cin >> guess)) {                                          // asked the user to input
       cout << "Please enter only numbers" << endl;                  // Prints out the string the the cin = standard input  which is guess variable
+      cin.clear();
+      cin.ignore(1000, '\n');
     } else {
       if (random_number < guess)                                    // if the user's guess is less than the random_number
        cout << "The secret number is lower than " << guess << endl; // prints out the string and user's guess
